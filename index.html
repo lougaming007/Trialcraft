@@ -190,12 +190,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Map</title>
+    <title>Minecraft Map Info</title>
+    <script>
+        async function fetchMapInfo() {
+            try {
+                const response = await fetch("http://map.trialcraft.de:25512/api/status");
+                const data = await response.json();
+                document.getElementById("map-status").textContent = `Status: ${data.status}`;
+            } catch (error) {
+                document.getElementById("map-status").textContent = "Karte nicht verfügbar.";
+            }
+        }
+        window.onload = fetchMapInfo;
+    </script>
 </head>
 <body>
-    <iframe src="http://map.trialcraft.de:25512/" 
-            style="width:100%; height:100vh; border:none;">
-    </iframe>
+    <h1>Interaktive Minecraft Map</h1>
+    <p id="map-status">Lade Status...</p>
+    <p><a href="http://map.trialcraft.de:25512/" target="_blank">Zur Karte</a></p>
 </body>
 </html>
 
