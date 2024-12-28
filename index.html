@@ -190,27 +190,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Map Info</title>
-    <script>
-        async function fetchMapInfo() {
-            try {
-                const response = await fetch("http://map.trialcraft.de:25512/api/status");
-                const data = await response.json();
-                document.getElementById("map-status").textContent = `Status: ${data.status}`;
-            } catch (error) {
-                document.getElementById("map-status").textContent = "Karte nicht verfügbar.";
-            }
+    <title>Minecraft Map</title>
+    <style>
+        .map-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        window.onload = fetchMapInfo;
-    </script>
+        .map-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Interaktive Minecraft Map</h1>
-    <p id="map-status">Lade Status...</p>
-    <p><a href="http://map.trialcraft.de:25512/" target="_blank">Zur Karte</a></p>
+    <h1>Unsere Minecraft-Welt</h1>
+    <p>Entdecke unsere Karte in einer interaktiven Ansicht:</p>
+    <a href="http://map.trialcraft.de:25512/" target="_blank" class="map-button">Karte öffnen</a>
 </body>
 </html>
-
 
 		</div>
 		<div id="contact">
